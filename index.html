@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Audio Visualizer</title>
+    <title>Native Audio Visualization</title>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta keywords="visualization, song visualization, winam" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/boost.js?_ga=2.266982286.1055622124.1627104939-599674205.1627104939"></script>
   </head>
-
   <body>
-    <header>
-      <h1>Audio Visualizer</h1>
-    </header>
+    <h3 class="hidden">Mobile devices are not supported due to APIs not being available. Please use a Computer.</h3>
+    <h1>COLDPLAY</h1>
     <main>
-      <section class="visualization">
-        <div id="visualizer"></div>
-      </section>
       <section class="audio">
-        <audio aria-hidden="true" id="source-audio" src="./res/sound.mp3" controls></audio>
-        <button disabled="true" id="audio-control" data-playing="no">Play a song</button>
+        <img src="res/cover.jpg" alt="Coldplay Parachutes cover art" />
+        <div class="track-details">
+          <div>
+            <h2>Track "Yellow"</h2>
+            <h5>by Coldplay</h5>
+            <h5>from the album "Parachutes"</h5>
+          </div>
+          <audio aria-hidden="true" id="source-audio" src="./res/sound.mp3" controls></audio>
+        </div>
       </section>
     </main>
+    <section class="visualization">
+      <div id="visualizer"></div>
+    </section>
+    <a class="github-link" href="https://github.com/ccsCoder/audio-visualization" target="_blank">
+      G I T H U B
+    </a>
     <script src="src/index.js"></script>
   </body>
 </html>
