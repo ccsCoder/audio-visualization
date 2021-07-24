@@ -6,9 +6,16 @@ const Visualizer = (function () {
   let audioContext = null;
   let source = null;
 
-  // const colors = ''
+  const colors = ['#FC5404', '#CF0000', '#2FC4B2', '#FE346E', '#9FE6A0', '#D62AD0', '#AA2EE6', '#EEEEEE', '#FDB827',
+  ];
 
   const audioSrc = document.querySelector('#source-audio');
+
+  function randomizeColors() {
+    let index = Math.round(Math.random() * (5 - 0) + 0);
+    if (index == colors.length) index = colors.length -1;
+    chart.update({plotOptions: {column: {color: colors[index]}}});
+  }
 
   function _init() {
     // initialize the chart
@@ -48,10 +55,10 @@ const Visualizer = (function () {
       },
       plotOptions: {
         column: {
-          color: '#ffa69e'
+          color: '#A4EBF3'
         },
         series: {
-          boostBlending: 'black',
+          // boostBlending: 'white',
         }
       },
       credits: {
@@ -67,19 +74,6 @@ const Visualizer = (function () {
       }],
     });
 
-    document.querySelector('#audio-control').addEventListener('click', function () {
-      if (this.getAttribute('data-playing') === 'no') {
-        audioSrc.play();
-        this.setAttribute('data-playing', 'yes');
-        this.innerText = 'Playing ...';
-      }
-      else if (this.getAttribute('data-playing') === 'yes') {
-        audioSrc.pause();
-        this.setAttribute('data-playing', 'no');
-        this.innerText = 'Click to play a song'
-      }
-    });
-
     // tab away, in
     document.addEventListener('visibilitychange', function () {
       if (document.visibilityState === 'hidden') {
@@ -89,16 +83,10 @@ const Visualizer = (function () {
       }
     });
 
-    audioSrc.addEventListener('canplay', function () {
-      document.querySelector('#audio-control').removeAttribute('disabled');
-    });
-
     // initialize the analyzer
     audioSrc.addEventListener('play', function (event) {
-      // Surprise
-      setTimeout(function() {
-        chart.update({plotOptions: {column: {color: '#FFDF00'}}});
-      }, 51000);
+      // color changer
+      setInterval(randomizeColors, 10000);
       // audioCntext and source
       audioContext = audioContext || new AudioContext();
       if (!source || !source.mediaElement) {
