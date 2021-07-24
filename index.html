@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Audio Visualizer</title>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/boost.js?_ga=2.266982286.1055622124.1627104939-599674205.1627104939"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Audio Visualizer</h1>
+    </header>
+    <main>
+      <section class="visualization">
+        <div id="visualizer"></div>
+      </section>
+      <section class="audio">
+        <audio aria-hidden="true" id="source-audio" src="./res/sound.mp3" controls></audio>
+        <button disabled="true" id="audio-control" data-playing="no">Play a song</button>
+      </section>
+    </main>
+    <script src="src/index.js"></script>
+  </body>
+</html>
